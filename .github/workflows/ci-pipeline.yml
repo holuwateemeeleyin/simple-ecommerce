@@ -1,0 +1,30 @@
+name: CI Pipeline
+on:
+    pull_request:
+        branches:
+            - main
+            - staging
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        env:
+            PORT: 3001
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+            - name: Install dependencies
+              run: |
+                cd frontend
+                npm install
+            - name: Run tests
+              run: |
+                cd frontend
+                npm test
+            - name: Build application
+              run: |
+                cd frontend
+                npm run build
