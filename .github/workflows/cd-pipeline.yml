@@ -1,0 +1,56 @@
+name: CD pipeline
+on:
+    push:
+        branches:
+            - staging
+    workflow_dispatch: {}
+    release:
+        types: published
+
+env:
+    PORT: 3001
+    
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+            - name: Install dependencies
+              run: |
+                cd frontend
+                npm install
+            - name: Run tests
+              run: |
+                cd frontend
+                npm test
+            - name: Build application
+              run: |
+                cd frontend
+                npm run build
+    build:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+            - name: Install dependencies
+              run: |
+                cd frontend
+                npm install
+            - name: Build application
+              run: |
+                cd frontend
+                npm run build
+            - name: Deploy to production
+              run: |
+                cd frontend
+                npm run deploy
