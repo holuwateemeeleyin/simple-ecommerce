@@ -62,3 +62,7 @@ You can also build and run the application using Docker:
 
 ## CI/CD Pipeline
 This project is equipped with a GitHub Actions CI pipeline (`ci-pipeline.yml`) that triggers on pull requests to the `main` or `staging` branches. It checks out the code, sets up Node.js, installs dependencies, and runs the configured tests.
+
+
+## Data Visualization 
+
