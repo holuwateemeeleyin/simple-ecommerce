@@ -1,4 +1,4 @@
-# Lumina E-Commerce (Simple E-Commerce)
+# Lumina E-Commerce (Simple E-Commerce) with AWS
 
 This repository contains the source code for the Lumina E-Commerce application, a simple e-commerce project built with Node.js and Express.
 
