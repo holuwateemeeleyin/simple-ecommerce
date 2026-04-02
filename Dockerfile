@@ -1,7 +1,7 @@
 FROM node:20-alpine
 WORKDIR /app
-COPY package*.json .
+COPY frontend/package*.json ./
 RUN npm install
-COPY . .
+COPY frontend/ ./
 EXPOSE 3001
 CMD ["npm", "start"]
