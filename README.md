@@ -6,7 +6,7 @@ This repository contains the source code for the Lumina E-Commerce application, 
 
 - `frontend/`: Contains the Express.js application serving the frontend.
 - `e2e/`: Contains end-to-end (E2E) tests written using Playwright.
-- `.github/workflows/`: Contains the continuous integration (CI) pipeline configuration for GitHub Actions.
+- `.github/workflows/`: Contains the continuous integration (CI) and continuous deployment (CD) pipeline configurations for GitHub Actions.
 - `Dockerfile`: A Dockerfile to containerize the application.
 
 ## Getting Started
@@ -61,7 +61,9 @@ You can also build and run the application using Docker:
    ```
 
 ## CI/CD Pipeline
-This project is equipped with a GitHub Actions CI pipeline (`ci-pipeline.yml`) that triggers on pull requests to the `main` or `staging` branches. It checks out the code, sets up Node.js, installs dependencies, and runs the configured tests.
+This project is equipped with GitHub Actions workflows for both CI and CD:
+- **CI Pipeline (`ci-pipeline.yml`)**: Triggers on pull requests to the `main` or `staging` branches. It checks out the code, sets up Node.js, installs dependencies, and runs the configured tests.
+- **CD Pipeline (`cd-pipeline.yml`)**: Triggers on pushes to the `staging` branch or when published. It runs the automated tests, builds the Docker image, and explicitly pushes the latest image container to Docker Hub securely relying on GitHub Secrets.
 
 
 ## Data Visualization 
