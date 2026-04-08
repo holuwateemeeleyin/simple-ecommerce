@@ -66,5 +66,5 @@ This project is equipped with GitHub Actions workflows for both CI and CD:
 - **CD Pipeline (`cd-pipeline.yml`)**: Triggers on pushes to the `staging` branch or when published. It runs the automated tests, builds the Docker image, and explicitly pushes the latest image container to Docker Hub securely relying on GitHub Secrets.
 
 
-## Data Visualization 
+## Data Visualization (Grafana)
 
