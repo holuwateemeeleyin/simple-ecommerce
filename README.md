@@ -68,3 +68,22 @@ This project is equipped with GitHub Actions workflows for both CI and CD:
 
 ## Data Visualization (Grafana)
 
+This project uses Prometheus and Grafana for comprehensive system monitoring, orchestrated via Docker Compose.
+
+### Starting the Monitoring Stack
+1. **Boot up the containers**:
+   ```bash
+   docker-compose up --build
+   ```
+2. **Access the services**:
+   - **Frontend**: [http://localhost:3001](http://localhost:3001)
+   - **Prometheus** (Metrics collector): [http://localhost:9090](http://localhost:9090)
+   - **Grafana** (Visualization dashboard): [http://localhost:3000](http://localhost:3000) (Login: `admin` / `admin`)
+
+### Setting up Graphs in Grafana
+1. Log into Grafana and go to **Connections > Data Sources**.
+2. Click **Add data source** and select **Prometheus**.
+3. In the **URL** field, enter `http://prometheus:9090`, then click **Save & test**.
+4. Go to **Dashboards > Import** (from the left menu).
+5. Type `11159` into the "Import via grafana.com" field and click **Load**.
+6. Select your Prometheus data source at the bottom and click **Import** to start visualizing your Node.js performance metrics!
