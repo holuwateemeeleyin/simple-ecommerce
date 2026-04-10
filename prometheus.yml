@@ -2,6 +2,6 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
-  - job_name: 'lumina-frontend'
+  - job_name: 'node'
     static_configs:
       - targets: ['frontend:3001']
